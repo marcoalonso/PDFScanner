@@ -45,9 +45,10 @@ class QRViewController: UIViewController {
     //MARK: Actions
     
     @IBAction func generarButton(_ sender: UIBarButtonItem) {
+        
+        imagenQRVisualizar.image = generateQRCode(from: textoGenerar.text ?? "Hola")
         textoGenerar.text = ""
         textoGenerar.endEditing(true)
-        imagenQRVisualizar.image = generateQRCode(from: textoGenerar.text ?? "Hola")
     }
     
 }
