@@ -49,9 +49,6 @@ class QRViewController: UIViewController {
         textoGenerar.endEditing(true)
         imagenQRVisualizar.image = generateQRCode(from: textoGenerar.text ?? "Hola")
     }
-    @IBAction func otraVezButton(_ sender: UIButton) {
-        
-    }
     
 }
 

@@ -41,6 +41,13 @@ class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
         performSegue(withIdentifier: "verDocumento", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "verDocumento" {
+            let documento = segue.destination as! VerDocumentoViewController
+            documento.recibirDocumentoMostrar = previewDoc.image
+        }
+    }
+    
     @IBAction func abrirGaleriaButton(_ sender: UIBarButtonItem) {
         let vc = UIImagePickerController()
         vc.sourceType = .savedPhotosAlbum
