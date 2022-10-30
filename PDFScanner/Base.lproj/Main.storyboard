@@ -2,7 +2,9 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BxF-um-ofQ">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -32,19 +34,147 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1Gp-rD-5Om">
-                        <barButtonItem key="leftBarButtonItem" title="Otra vez" id="x9T-h6-fgO"/>
+                        <barButtonItem key="leftBarButtonItem" title="Otra vez" id="x9T-h6-fgO">
+                            <connections>
+                                <action selector="tomarOtraVezButton:" destination="BYZ-38-t0r" id="wkP-0l-RdZ"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem title="Guardar PDF" id="l1Q-u1-QBR"/>
-                            <barButtonItem title="Item" image="qrcode" catalog="system" id="iao-5y-FSA"/>
+                            <barButtonItem title="Guardar PDF" id="l1Q-u1-QBR">
+                                <connections>
+                                    <action selector="guardarPDFButton:" destination="BYZ-38-t0r" id="McD-lz-Pq2"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="qrcode" catalog="system" id="iao-5y-FSA">
+                                <connections>
+                                    <segue destination="prr-CX-d9B" kind="show" id="y4J-zs-vDt"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="photo.artframe" catalog="system" id="wkx-dV-UyA">
+                                <connections>
+                                    <action selector="abrirGaleriaButton:" destination="BYZ-38-t0r" id="GFR-g7-FmE"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="previewDoc" destination="2Eu-Vz-H3G" id="1A1-dp-YPd"/>
+                        <segue destination="ENB-AV-8PP" kind="presentation" identifier="verDocumento" id="9hD-8V-uGs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="953.84615384615381" y="-28.436018957345969"/>
+        </scene>
+        <!--Ver Documento View Controller-->
+        <scene sceneID="wWh-0s-n9c">
+            <objects>
+                <viewController id="ENB-AV-8PP" customClass="VerDocumentoViewController" customModule="PDFScanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="H38-UY-M5B">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yi3-Of-udX">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HLZ-Ve-Upe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yi3-Of-udX" firstAttribute="trailing" secondItem="HLZ-Ve-Upe" secondAttribute="trailing" id="AOE-8U-W4N"/>
+                            <constraint firstItem="yi3-Of-udX" firstAttribute="bottom" secondItem="HLZ-Ve-Upe" secondAttribute="bottom" id="Mt7-5D-2V1"/>
+                            <constraint firstItem="yi3-Of-udX" firstAttribute="leading" secondItem="HLZ-Ve-Upe" secondAttribute="leading" id="Whm-9I-gQZ"/>
+                            <constraint firstItem="yi3-Of-udX" firstAttribute="top" secondItem="H38-UY-M5B" secondAttribute="top" id="kKx-oZ-C6f"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="EVp-oN-ZrG"/>
+                    <connections>
+                        <outlet property="documentoVisualizar" destination="yi3-Of-udX" id="0ce-vs-K2T"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wa3-qH-xqG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="953.84615384615381" y="684.59715639810429"/>
+        </scene>
+        <!--Generar Código QR-->
+        <scene sceneID="lH4-rC-9hQ">
+            <objects>
+                <viewController id="prr-CX-d9B" customClass="QRViewController" customModule="PDFScanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vFB-u3-upa">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Escribe aqui el texto que te gustaría convertir en QR." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TmZ-R5-KLC">
+                                <rect key="frame" x="15" y="106" width="360" height="164"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="164" id="J1e-sI-CWy"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="UWk-ng-hUR">
+                                <rect key="frame" x="15" y="281.66666666666669" width="360" height="196.99999999999997"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="kOP-3f-519"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qjf-x2-V4T">
+                                <rect key="frame" x="15" y="490" width="360" height="50"/>
+                                <color key="backgroundColor" name="PrimaryColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="sI4-UQ-9Px"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="tintColor" name="AccentColor"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Generar otra vez"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="otraVezButton:" destination="prr-CX-d9B" eventType="touchUpInside" id="COa-gG-uBg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KxT-IH-GBb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KxT-IH-GBb" firstAttribute="trailing" secondItem="qjf-x2-V4T" secondAttribute="trailing" constant="15" id="IsT-h4-xvv"/>
+                            <constraint firstItem="UWk-ng-hUR" firstAttribute="leading" secondItem="KxT-IH-GBb" secondAttribute="leading" constant="15" id="Y3g-Of-9ca"/>
+                            <constraint firstItem="KxT-IH-GBb" firstAttribute="trailing" secondItem="TmZ-R5-KLC" secondAttribute="trailing" constant="15" id="Zbt-c3-Exg"/>
+                            <constraint firstItem="UWk-ng-hUR" firstAttribute="top" secondItem="TmZ-R5-KLC" secondAttribute="bottom" constant="10" id="Zqa-aT-Wkq"/>
+                            <constraint firstItem="TmZ-R5-KLC" firstAttribute="leading" secondItem="KxT-IH-GBb" secondAttribute="leading" constant="15" id="c9x-zt-C6c"/>
+                            <constraint firstItem="qjf-x2-V4T" firstAttribute="top" secondItem="UWk-ng-hUR" secondAttribute="bottom" constant="10" id="jcM-bf-0lv"/>
+                            <constraint firstItem="KxT-IH-GBb" firstAttribute="trailing" secondItem="UWk-ng-hUR" secondAttribute="trailing" constant="15" id="pTb-Ql-sTn"/>
+                            <constraint firstItem="TmZ-R5-KLC" firstAttribute="top" secondItem="KxT-IH-GBb" secondAttribute="top" constant="15" id="sq9-1D-yOE"/>
+                            <constraint firstItem="qjf-x2-V4T" firstAttribute="leading" secondItem="vFB-u3-upa" secondAttribute="leading" constant="15" id="yMP-Ak-Zxl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Generar Código QR" id="5g8-Cz-w4u">
+                        <barButtonItem key="rightBarButtonItem" title="Generar" id="Syn-3s-DAf">
+                            <connections>
+                                <action selector="generarButton:" destination="prr-CX-d9B" id="nfC-eL-cap"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imagenQRVisualizar" destination="UWk-ng-hUR" id="O3x-WZ-nVN"/>
+                        <outlet property="textoGenerar" destination="TmZ-R5-KLC" id="nbR-dj-LxJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gLr-3g-IYP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1776.9230769230769" y="-28.436018957345969"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DxO-iE-wb3">
@@ -66,7 +196,17 @@
         </scene>
     </scenes>
     <resources>
+        <image name="photo.artframe" catalog="system" width="128" height="93"/>
         <image name="qrcode" catalog="system" width="128" height="114"/>
+        <namedColor name="AccentColor">
+            <color red="0.20584228630000001" green="0.2191252112" blue="0.2192024887" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryColor">
+            <color red="0.176453054" green="0.87458342310000003" blue="0.98694902659999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

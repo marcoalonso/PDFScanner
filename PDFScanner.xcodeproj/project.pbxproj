@@ -13,6 +13,8 @@
 		6C121779290EFAA000BC6CA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C121777290EFAA000BC6CA9 /* Main.storyboard */; };
 		6C12177B290EFAA100BC6CA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C12177A290EFAA100BC6CA9 /* Assets.xcassets */; };
 		6C12177E290EFAA100BC6CA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C12177C290EFAA100BC6CA9 /* LaunchScreen.storyboard */; };
+		6C121786290F030800BC6CA9 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C121785290F030800BC6CA9 /* QRViewController.swift */; };
+		6C121788290F064900BC6CA9 /* VerDocumentoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C121787290F064900BC6CA9 /* VerDocumentoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		6C12177A290EFAA100BC6CA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C12177D290EFAA100BC6CA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6C12177F290EFAA100BC6CA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C121785290F030800BC6CA9 /* QRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
+		6C121787290F064900BC6CA9 /* VerDocumentoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerDocumentoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				6C12177A290EFAA100BC6CA9 /* Assets.xcassets */,
 				6C12177C290EFAA100BC6CA9 /* LaunchScreen.storyboard */,
 				6C12177F290EFAA100BC6CA9 /* Info.plist */,
+				6C121785290F030800BC6CA9 /* QRViewController.swift */,
+				6C121787290F064900BC6CA9 /* VerDocumentoViewController.swift */,
 			);
 			path = PDFScanner;
 			sourceTree = "<group>";
@@ -138,9 +144,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C121788290F064900BC6CA9 /* VerDocumentoViewController.swift in Sources */,
 				6C121776290EFAA000BC6CA9 /* ViewController.swift in Sources */,
 				6C121772290EFAA000BC6CA9 /* AppDelegate.swift in Sources */,
 				6C121774290EFAA000BC6CA9 /* SceneDelegate.swift in Sources */,
+				6C121786290F030800BC6CA9 /* QRViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
